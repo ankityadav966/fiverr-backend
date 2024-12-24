@@ -1,10 +1,11 @@
 const express = require('express');
 const connectionMongoDB = require('./Src/DB/config');
-const Routers = require('./Src/Router/Routers');
+// const Routers = require('./Src/Router/Routers');
 const router = require('./Src/Router/Routers');
 const app = express();
 const PORT = 8090;
 app.use(express.json())
+app.use(router)
 const ratelimit = require('express-rate-limit');
 
 const DB_name = "fiverr_clone_db";
@@ -35,8 +36,7 @@ app.use(limiter)
 
 
 
-app.use(router)
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on ports ${PORT}`);
 })
 

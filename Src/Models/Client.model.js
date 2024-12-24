@@ -11,7 +11,7 @@ const ClientSchema = new mongoose.Schema(
             unique: true,
             required: true
         },
-        
+
         password: {
             type: String,
             required: true
@@ -20,22 +20,24 @@ const ClientSchema = new mongoose.Schema(
         number: {
             type: Number
         },
-
-        category_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'categories'
+        token: {
+            type: String
         },
-        token:{
-            type:String
+        bio: {
+            type: String
         },
-
-        orders: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'orders'
-            }
-        ]
+        role: {
+            type: String,
+            Enum: ['buyer', 'seller', 'admin'],
+            default: 'buyer'
+        },
+        status:{
+            type:String,
+            default:"active"
+        }
     },
+
+
 
     { timestamps: true }
 );

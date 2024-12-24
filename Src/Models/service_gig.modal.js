@@ -33,13 +33,16 @@ const GigSchema = new mongoose.Schema(
                 ref: 'categories'
             }
         ],
+        approved:{
+            type:Boolean
+        }
         
-        ratting:[
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'reviews'
-            }
-        ]
+        // ratting:[
+        //     {
+        //         type: mongoose.Schema.Types.ObjectId,
+        //         ref: 'reviews'
+        //     }
+        // ]
     },
 
     { timestamps: true }
